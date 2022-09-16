@@ -11,4 +11,5 @@ urlpatterns = [
 ]
 urlpatterns += [
     re_path(r'^mybooks/$', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
+    re_path(r'^borrowed/$', views.LoanedBooksAllListView.as_view(), name='all-borrowed'),
 ]
