@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7$p5)7jte6md+r#!2%_!czc7&*ei$yx&+sp*l@r75a&j^dvws@'
-
+# SECRET_KEY = 'django-insecure-7$p5)7jte6md+r#!2%_!czc7&*ei$yx&+sp*l@r75a&j^dvws@'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '7$p5)7jte6md+r#!2%_!czc7&*ei$yx&+sp*l@r75a&j^dvws@')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG = True
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
+ALLOWED_HOSTS = ['.herokuapp.com','127.0.0.1']
 
 LOGIN_REDIRECT_URL = '/'
 
@@ -127,3 +127,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+SESSION_COOKIE_SECURE = True

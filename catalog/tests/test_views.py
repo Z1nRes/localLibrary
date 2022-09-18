@@ -300,7 +300,7 @@ class AuthorCreateViewTest(TestCase):
         response = self.client.get(reverse('author-create'))
         self.assertEqual(response.status_code, 200)
 
-        expected_initial_date = datetime.date(2020, 6, 11)
+        expected_initial_date = datetime.date(2016, 10, 12)
         response_date = response.context['form'].initial['date_of_death']
         response_date = datetime.datetime.strptime(response_date, "%d/%m/%Y").date()
         self.assertEqual(response_date, expected_initial_date)
