@@ -1,8 +1,3 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-# Text backup files
-*.bak
-
-#Database
-*.sqlite3
